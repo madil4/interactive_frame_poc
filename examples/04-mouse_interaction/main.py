@@ -75,7 +75,7 @@ def ex_loop(press, mouse):
     # freeze pressed
     if press is not None:
         # free = np.setdiff1d(free, press)
-        f_ex[press] = 1000 * (mouse - x[press])
+        f_ex[press] = 500 * (mouse - x[press])
 
     # init
     xn = np.copy(x)

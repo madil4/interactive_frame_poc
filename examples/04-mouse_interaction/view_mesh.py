@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib import animation
 from matplotlib.patches import Polygon
-
+from matplotlib.lines import Line2D
 
 def view_mesh(x, faces, ex_loop, dt):
 
@@ -16,7 +16,7 @@ def view_mesh(x, faces, ex_loop, dt):
             # init polygons
             for face in faces:
                 polygon = Polygon([x[face.vertex1.dof], x[face.vertex2.dof], x[face.vertex3.dof]],
-                                  zorder=2, edgecolor="C0", facecolor="white", linewidth=-1.5)
+                                  zorder=2, edgecolor="C0", facecolor="#EAEAEA", linewidth=-1.5)
                 ax.add_patch(polygon)
 
         elif f > 1:
@@ -61,6 +61,10 @@ def view_mesh(x, faces, ex_loop, dt):
     cid = fig.canvas.mpl_connect('button_press_event', on_press)
     cid = fig.canvas.mpl_connect('button_release_event', on_release)
     cid = fig.canvas.mpl_connect('motion_notify_event', on_motion)
+
+
+    line = Line2D((0,80),(15,15))
+    ax.add_line(line)
 
     anim = animation.FuncAnimation(fig, loop, interval=dt * 1000)
     plt.tight_layout(), plt.show()
