@@ -1,2 +1,2 @@
-# awatif_2D
-Basic 2D impelementation of Awatif engine in python
+# Interactive Frame Proof of Concept
+Basic 2D impelementation of the interactive frame in python
